@@ -1,3 +1,8 @@
+body{
+  max-width: 1200px;
+  margin: auto;
+}
+
 header{
   display: flex;
   padding: 25px;
@@ -25,12 +30,14 @@ main{
   flex-direction: column;
 }
 
-.img-display{
+#img-display{
   display: flex;
+  justify-content: space-evenly;
   border: thin solid red;
 }
 
-.img-container{
+img{
+  max-width: 300px;
   margin: 5px;
 }
 

@@ -64,3 +64,20 @@ function randProducts(amount = 3){
   }
   return arr;
 }
+
+
+
+function render(array){
+  let imgContainer = document.getElementById('img-display');
+  console.log(imgContainer);
+  for(let i = 0; i < array.length; i++){
+    array[i].incShown();
+    console.log(array[i]);
+    let prodImg = document.createElement('img');
+    prodImg.src = array[i].img;
+    prodImg.alt = array[i].name;
+    imgContainer.appendChild(prodImg);
+  }
+}
+
+render(randProducts());
