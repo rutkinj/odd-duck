@@ -1,0 +1,46 @@
+header{
+  display: flex;
+  padding: 25px;
+  align-items: center;
+  border: thin solid orange;
+}
+
+h1{
+  font-size: x-large;
+  margin: 10px;
+}
+
+main{
+  display: flex;
+}
+
+.lefty{
+
+  border: thin solid green;
+  height: 100%;
+}
+
+.center{
+  display: flex;
+  flex-direction: column;
+}
+
+.img-display{
+  display: flex;
+  border: thin solid red;
+}
+
+.img-container{
+  margin: 5px;
+}
+
+.spacer{
+  border: thin solid aqua;
+}
+
+.lorem{
+  border: thin solid chartreuse;
+}
+footer{
+  border: thin solid blue;
+}
