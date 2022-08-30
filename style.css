@@ -17,12 +17,11 @@ h1{
 
 main{
   display: flex;
+  flex-direction: column;
 }
 
 #results{
-  width:auto;
   border: thin solid green;
-  height: 100%;
 }
 
 ul{
@@ -30,24 +29,38 @@ ul{
   border: thin solid black;
 }
 
-.center{
-  display: flex;
-  flex-direction: column;
-}
 
 #img-display{
   display: flex;
   justify-content: space-evenly;
+  max-height: 300px;
   border: thin solid red;
 }
 
 img{
-  max-width: 300px;
+  border: thick double pink;
+  height: auto;
+  max-width: 30%;
   margin: 5px;
 }
 
+button{
+  margin: 5px;
+  background-color: salmon;
+  color: white;
+  font-size: large;
+  align-self: center;
+  height: 50px;
+  width: 50%;
+}
 .spacer{
+  height: 5vw;
   border: thin solid aqua;
+}
+#chart-area{
+  margin: auto;
+  max-height: 600px;
+  max-width: 80%;
 }
 
 .lorem{
@@ -55,4 +68,5 @@ img{
 }
 footer{
   border: thin solid blue;
+  align-self:flex-end;
 }
