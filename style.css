@@ -19,10 +19,15 @@ main{
   display: flex;
 }
 
-.lefty{
-
+#results{
+  width:auto;
   border: thin solid green;
   height: 100%;
+}
+
+ul{
+  list-style: circle;
+  border: thin solid black;
 }
 
 .center{
