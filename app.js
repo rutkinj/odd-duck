@@ -92,6 +92,13 @@ function handleClick(event) {
   }
 }
 
+function capitalize(str){
+  let returnVal = str.split('');
+  returnVal[0] = returnVal[0].toUpperCase();
+  returnVal = returnVal.join('');
+  return returnVal;
+}
+
 //---------- RESULTS ----------------------//
 
 
@@ -150,7 +157,7 @@ function renderChart(){
   let prodClicks = [];
   let prodViews = [];
   for (let i = 0; i < catalog.length; i++) {
-    prodNames.push(catalog[i].name);
+    prodNames.push(capitalize(catalog[i].name));
     prodClicks.push(catalog[i].chosenCount);
     prodViews.push(catalog[i].shownCount);
   }
