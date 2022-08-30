@@ -14,12 +14,13 @@ function Product(name){
   this.shownCount = 0;
   this.chosenCount = 0;
 
-  Product.catalog.push(this);
+  catalog.push(this);
 }
 
 /////////// PROTO ///////////
 
-Product.catalog = [];
+let catalog = [];
+let lastUp = [];
 
 
 Product.prototype.incChosen = function (amount = 1){
@@ -60,7 +61,7 @@ new Product('wine-glass');
 
 
 function randIndex(){
-  let randIdx = Math.floor(Math.random() * Product.catalog.length);
+  let randIdx = Math.floor(Math.random() * catalog.length);
   return randIdx;
 }
 
@@ -69,11 +70,12 @@ function randProducts(amount = 3){
   let arr = [];
 
   while (arr.length < amount){
-    let randyPro = Product.catalog[randIndex()];
-    if(!arr.includes(randyPro)){
+    let randyPro = catalog[randIndex()];
+    if(!arr.includes(randyPro) && !lastUp.includes(randyPro)){
       arr.push(randyPro);
     }
   }
+  lastUp = arr;
   return arr;
 }
 
@@ -82,9 +84,9 @@ function handleClick(event) {
   console.log(event.target.alt);
   clicks++;
   let chosenProd = event.target.alt;
-  for (let i=0; i < Product.catalog.length; i++){
-    if (chosenProd === Product.catalog[i].name){
-      Product.catalog[i].incChosen();
+  for (let i=0; i < catalog.length; i++){
+    if (chosenProd === catalog[i].name){
+      catalog[i].incChosen();
       render(randProducts());
     }
   }
@@ -100,9 +102,9 @@ function results(){
 
 function resultsList(){
   let resultsList = document.getElementById('results-list');
-  for (let i = 0; i < Product.catalog.length; i++) {
+  for (let i = 0; i < catalog.length; i++) {
     let prodLi = document.createElement('li');
-    let prod = Product.catalog[i];
+    let prod = catalog[i];
     let prodInfo = `Product: ${prod.name}. 
                     Clicks: ${prod.chosenCount}. 
                     Appearences: ${prod.shownCount}. `;
