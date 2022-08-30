@@ -38,13 +38,21 @@ ul{
 }
 
 img{
-  border-radius: 20%;
   border: thick double pink;
   height: auto;
   max-width: 30%;
   margin: 5px;
 }
 
+button{
+  margin: 5px;
+  background-color: salmon;
+  color: white;
+  font-size: large;
+  align-self: center;
+  height: 50px;
+  width: 50%;
+}
 .spacer{
   height: 5vw;
   border: thin solid aqua;
