@@ -138,8 +138,58 @@ function render(array){
     }
   } else {
     console.log('beep boop here is results');
+    renderChart();
   }
 }
 
+/////// CHART /////////
+function renderChart(){
+
+  // Read data
+  let prodNames = [];
+  let prodClicks = [];
+  let prodViews = [];
+  for (let i = 0; i < catalog.length; i++) {
+    prodNames.push(catalog[i].name);
+    prodClicks.push(catalog[i].chosenCount);
+    prodViews.push(catalog[i].shownCount);
+  }
+
+  // Create datasets
+  const data = {
+    labels: prodNames,
+    datasets: [{
+      label: 'Clicks',
+      data: prodClicks,
+      backgroundColor:['rgba(255,0,0,0.5)'],
+      borderColor:['rgba(255,0,0,1)'],
+      borderWidth: 1
+    },
+    {
+      label: 'Views',
+      data: prodViews,
+      backgroundColor: ['rgba(0,255,0,0.5)'],
+      borderColor: ['rgba(0,255,0,1)'],
+      borderWidth: 1
+    }]
+  };
+
+  const ctx = document.getElementById('myChart');
+  const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
+
+
+////// START ///////
 
 render(randProducts());
