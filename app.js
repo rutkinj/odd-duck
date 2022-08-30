@@ -114,17 +114,9 @@ function resultsList(){
 function resultsImgs(){
   //doot doot tbd
 }
-let resultsListEle = document.getElementById('results-list');
-// resultsListEle.style.display = 'none';
+
 let resultsArea = document.getElementById('results');
-resultsArea.addEventListener('button', displayResults);
-
-function displayResults(){
-  console.log('bingbong');
-  resultsListEle.style.visibility = 'initial';
-}
-
-
+resultsArea.addEventListener('click', resultsList);
 //----------RENDER---------------------//
 
 function render(array){
@@ -143,7 +135,6 @@ function render(array){
       imgContainer.appendChild(prodImg);
     }
   } else {
-    results();
     console.log('beep boop here is results');
   }
 }
