@@ -81,7 +81,6 @@ function randProducts(amount = 3){
 
 
 function handleClick(event) {
-  console.log(event.target.alt);
   clicks++;
   let chosenProd = event.target.alt;
   for (let i=0; i < catalog.length; i++){
@@ -103,29 +102,13 @@ function capitalize(str){
 
 
 function results(){
-  resultsList();
-  resultsImgs();
-}
 
-function resultsList(){
-  let resultsList = document.getElementById('results-list');
-  for (let i = 0; i < catalog.length; i++) {
-    let prodLi = document.createElement('li');
-    let prod = catalog[i];
-    let prodInfo = `Product: ${prod.name}. 
-                    Clicks: ${prod.chosenCount}. 
-                    Appearences: ${prod.shownCount}. `;
-    prodLi.textContent = prodInfo;
-    resultsList.appendChild(prodLi);
-  }
+  let resultsButton = document.getElementById('revealer');
+  resultsButton.hidden = false;
+  resultsButton.addEventListener('click', function(){
+    document.getElementById('chart-area').hidden = false;
+  });
 }
-
-function resultsImgs(){
-  //doot doot tbd
-}
-
-let resultsArea = document.getElementById('results');
-resultsArea.addEventListener('click', resultsList);
 //----------RENDER---------------------//
 
 function render(array){
@@ -145,6 +128,7 @@ function render(array){
     }
   } else {
     console.log('beep boop here is results');
+    results();
     renderChart();
   }
 }
@@ -168,15 +152,15 @@ function renderChart(){
     datasets: [{
       label: 'Clicks',
       data: prodClicks,
-      backgroundColor:['rgba(255,0,0,0.5)'],
-      borderColor:['rgba(255,0,0,1)'],
+      backgroundColor:['rgba(0,255,0.5)'],
+      borderColor:['rgba(0,255,0,1)'],
       borderWidth: 1
     },
     {
       label: 'Views',
       data: prodViews,
-      backgroundColor: ['rgba(0,255,0,0.5)'],
-      borderColor: ['rgba(0,255,0,1)'],
+      backgroundColor: ['rgba(0,0,255,0.5)'],
+      borderColor: ['rgba(0,0,255,1)'],
       borderWidth: 1
     }]
   };

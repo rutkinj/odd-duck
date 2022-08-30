@@ -12,11 +12,6 @@
       <h1>Odd Duck Products</h1>
     </header>
     <main>
-      <section id="results">
-        <button>Show Results</button>
-        <ul id="results-list">
-        </ul>
-      </section>
       <section class="center">
         <div id="img-display">
           
@@ -25,12 +20,18 @@
         <div class="lorem">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quis animi corrupti dicta cumque placeat debitis quisquam quidem numquam porro asperiores cum, minus ullam. Perferendis animi est illo officiis eum.
         </div>
+        
+      </section>
+      <section id="results">
+        <button id="revealer" hidden>Show Results</button>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <div id="chart-area" hidden>
+          <canvas id="myChart" width="1200" height="600"></canvas>
+        </div>
 
       </section>
 
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <canvas id="myChart" width="400" height="400"></canvas>
     <footer>
       <h1>Bigfoot</h1>
     </footer>
