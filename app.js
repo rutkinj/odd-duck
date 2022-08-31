@@ -33,6 +33,25 @@ Product.prototype.incShown = function (){
 };
 
 
+///////// LOCAL STORAGE /////////
+
+function getStorage(){
+  let storedCata = localStorage.getItem('catalog');
+  console.log('retrieved data: ' + storedCata);
+  if (storedCata){
+    console.log('loaded data');
+    catalog = JSON.parse(storedCata);
+  }
+}
+
+
+function updateStorage(){
+  let stringForStorage = JSON.stringify(catalog);
+  console.log(stringForStorage);
+  localStorage.setItem('catalog', stringForStorage);
+}
+
+
 ////////// PROD INIT //////////
 
 
@@ -89,7 +108,7 @@ function handleClick(event) {
   let chosenProd = event.target.alt;
   for (let i=0; i < catalog.length; i++){
     if (chosenProd === catalog[i].name){
-      catalog[i].incChosen();
+      catalog[i].chosenCount++;
       render(randProducts());
       break;
     }
@@ -119,6 +138,7 @@ let imgContainer = document.getElementById('img-display');
 imgContainer.addEventListener('click', handleClick);
 
 function render(array){
+  updateStorage();
   if (clicks < maxClicks) {
 
     while (imgContainer.firstChild){
@@ -126,7 +146,7 @@ function render(array){
     }
 
     for(let i = 0; i < array.length; i++){
-      array[i].incShown();
+      array[i].shownCount++;
       let prodImg = document.createElement('img');
       prodImg.src = array[i].img;
       prodImg.alt = array[i].name;
@@ -188,5 +208,5 @@ function renderChart(){
 
 
 ////// START ///////
-
+getStorage();
 render(randProducts());
